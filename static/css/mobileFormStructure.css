@@ -1,0 +1,56 @@
+.reportType{
+	position: relative;
+
+	width: 100%;
+	min-height: 50px;
+	height: 5%;
+
+	text-align: center;
+}
+.description{
+	position: relative;
+	width: 100%;
+	min-height: 50px;
+	height: 20%;
+
+	text-align: center;
+}
+textarea{
+	height: 80% !important;
+	resize: none;
+}
+.location{
+	position: relative;
+	
+	width: 100%;
+	min-height: 50px;
+	height: 5%;
+
+	text-align: center;
+}
+.image{
+	position: relative;
+	width: 100%;
+	min-height: 50px;
+	height: 5%;
+
+	text-align: center;
+}
+.updates{
+	position: relative;
+
+	width: 100%;
+	min-height: 50px;
+	height: 5%;
+
+	text-align: center;	
+}
+.submission{
+	position: relative;
+
+	width: 100%;
+	min-height: 50px;
+	height: 5%;
+
+	text-align: center;
+}
