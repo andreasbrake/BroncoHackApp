@@ -15,10 +15,7 @@
 			return <%- entries %>
 		}
 		function getUser(){
-			return '<%=user %>'
-		}
-		function getPermission(){
-			return '<%=permissionLevel %>'
+			return <%- user %>
 		}
 	</script>
 	<script type="text/javascript" src="/js/pinInfo.js"></script>
@@ -30,6 +27,8 @@
 		<div class='backpane'></div>
 		<div class='header'>
 			<div id='login'>
+				<h> you are not logged in </h>
+				<button id="login-button"> login </button>
 			</div>
 			<table class='menu'>
 				<tr>
@@ -48,8 +47,8 @@
 		</div>
 		<div class='content'>
 			<div id='report'>
-				<h1> </h1>
-				<h2> Engage all citizens to report and resolve problems in our community! </h2>
+				<h1> VandalFree </h1>
+				<h2> Report vandalism to improve our community! </h2>
 				<hr id="hr1">
 				<form action='/report' method='POST' class='reportForm' enctype="multipart/form-data">
 					<div class='reportType'>
@@ -105,7 +104,6 @@
 					</div>
 					<button id='info_back' class='nav-button'>Back</button>
 					<button id='info_next' class='nav-button'>Next</button>
-					<div id='changeStatus'> </div>
 				</div>
 			</div>			
 		</div>
