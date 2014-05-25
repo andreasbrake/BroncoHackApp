@@ -13,9 +13,10 @@
 .description{
 	position: relative;
 	width: 100%;
-	min-height: 50px;
+	min-height: 75px;
 	height: 20%;
 
+	margin-bottom: 5px;
 	text-align: center;
 }
 textarea{
