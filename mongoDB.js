@@ -61,8 +61,8 @@ exports.saveReport = function(params,callback){
 
 	reportList.count({
 		reportType: report.reportType,
-		location: report.location,
-		status: String
+		compLocation: report.compLocation,
+		status: report.status
 	},function(err, count){
 		if(err) 
 			return console.log('whelp')
