@@ -1,5 +1,6 @@
 var entries
 var marker
+var pins
 
 $(document).ready(function(){
 	entries = getEntries().entries
@@ -77,17 +78,24 @@ $(document).ready(function(){
 
 	function addAllPins(map){
 
-		var pins = []
+		pins = []
 		for(var i = 0; i < entries.length ; i++){
 			console.log(entries[i].location[0])
 			if(entries[i].status != 'resolved' ||  Date.now() - entries[i].date < 15778500000)
-
-				pins.push(
-					new google.maps.Marker({
-						position: new google.maps.LatLng(entries[i].location[0],entries[i].location[1]),
+				var cur = entries[i];
+				var temp = new google.maps.Marker({
+						position: new google.maps.LatLng(cur.location[0],cur.location[1]),
 						map: map,
-						title: 'Report ' + i
+						title: cur.reportType
 					})
+					temp.metadata = {reportType: cur.reportType, 
+						reportCount: cur.reportCount,
+						status: cur.status,
+						images: cur.images,
+						description: cur.description,
+						datetime: cur.datetime}
+				pins.push(
+					temp
 				)	
 		}
 	}
