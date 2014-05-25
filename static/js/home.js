@@ -2,8 +2,9 @@ var entries
 var marker
 
 $(document).ready(function(){
-	entries = getEntries().split(',')
-	
+	entries = getEntries().entries
+	alert(entries)
+
 	function initialize() {
 		var latitude
 		var longitude
@@ -42,7 +43,6 @@ $(document).ready(function(){
 		function initPosition(position){
 			latitude = position.coords.latitude
 			longitude = position.coords.longitude
-			console.log(latitude)
 			var mapOptions = {
 				center: new google.maps.LatLng(latitude,longitude),
 				zoom: 12,
@@ -79,14 +79,16 @@ $(document).ready(function(){
 
 		var pins = []
 		for(var i = 0; i < entries.length ; i++){
+			console.log(entries[i].location[0])
 			if(entries[i].status != 'resolved' ||  Date.now() - entries[i].date < 15778500000)
+
 				pins.push(
 					new google.maps.Marker({
-						position: new google.maps.LatLng(entries[i].location[0],entries[i].location[0]),
+						position: new google.maps.LatLng(entries[i].location[0],entries[i].location[1]),
 						map: map,
 						title: 'Report ' + i
 					})
-					)
+				)	
 		}
 	}
 	google.maps.event.addDomListener(window, 'load', initialize);
