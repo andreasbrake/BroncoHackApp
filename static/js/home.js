@@ -109,7 +109,7 @@ function addAllPins(map){
 			var cur = entries[i];
 			var icon
 			switch(cur.reportType){
-				case "police" : icon = "/img/police1.PNG"; break;
+				case "police" : icon = "/img/police2.PNG"; break;
 				case "earthquakes" : icon = "/img/earthquakes1.PNG"; break;
 				default : icon = "http://maps.google.com/mapfiles/ms/icons/red-dot.png"
 			}
