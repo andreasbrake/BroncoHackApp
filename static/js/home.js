@@ -67,7 +67,7 @@ function initialize() {
 }
 
 function savePosition(lat,long){
-	document.getElementById("location").value=[lat,long]
+	document.getElementById("location").value= lat + ',' + long
 }
 
 

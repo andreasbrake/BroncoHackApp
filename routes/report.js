@@ -25,11 +25,12 @@ exports.post = function(req,res){
 	console.log('POST report')
 	
 	var params = req.body
+	var location = params.location.split(',')
 
 	var report = new model({
 		datetime: [Date.now()],
 		description: params.description,
-		location: params.location,
+		location: [parseFloat(location[0]),parseFloat(location[1])],
 		images: [params.image],
 		reportTo: [],
 		reportType: [params.reportType],
