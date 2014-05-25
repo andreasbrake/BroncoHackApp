@@ -46,7 +46,6 @@ function initialize(map_canvas,report) {
 			});
 			google.maps.event.addListener(marker,'dragend',function(event) {
 				savePosition(this.position.lat(),this.position.lng())
-				alert('Drag end');
 			});
 		}
 		else{
@@ -95,36 +94,33 @@ function savePosition(lat,long){
 	document.getElementById("location").value= lat + ',' + long
 }
 
-	google.maps.event.addDomListener(window, 'load', initialize);
-})
-
-
 function addAllPins(map){
 	pins = []
-		for(var i = 0; i < entries.length ; i++){
+	for(var i = 0; i < entries.length ; i++){
 			if(entries[i].status != 'resolved' ||  Date.now() - entries[i].date < 15778500000)
-				var cur = entries[i];
-				var temp = new google.maps.Marker({
-						position: new google.maps.LatLng(cur.location[0],cur.location[1]),
-						map: map,
-						title: cur.reportType
-					})
-					temp.setValues({reportType: cur.reportType, 
-						reportCount: cur.reportCount,
-						status: cur.status,
-						images: cur.images,
-						description: cur.description,
-						datetime: cur.datetime});
-					google.maps.event.addListener(temp, 'click', function() {
-						document.getElementById("type").innerHTML = temp.get("reportType")
-						document.getElementById("count").innerHTML = temp.get("reportCount")
-						document.getElementById("descr").innerHTML = temp.get("description")
-						document.getElementById("date").innerHTML = temp.get("datetime")
-						document.getElementById("pic").src = temp.get("images")
-					});
-				pins.push(
-					temp
-				)	
-		}
+			var cur = entries[i];
+			var temp = new google.maps.Marker({
+					position: new google.maps.LatLng(cur.location[0],cur.location[1]),
+					map: map,
+					title: cur.reportType
+				})
+			console.log(cur.description)
+				temp.setValues({reportType: cur.reportType, 
+					reportCount: cur.reportCount,
+					status: cur.status,
+					images: cur.images,
+					description: cur.description,
+					datetime: cur.datetime});
+				google.maps.event.addListener(temp, 'click', function() {
+					var date = new Date(temp.get("datetime")[0])
+					document.getElementById("type").innerHTML = temp.get("reportType")
+					document.getElementById("count").innerHTML = temp.get("reportCount")
+					document.getElementById("descr").innerHTML = temp.get("description")[0]
+					document.getElementById("date").innerHTML = date.toLocaleDateString()
+					document.getElementById("pic").src = temp.get("images")[0]
+				});
+			pins.push(
+				temp
+			)	
 	}
 }
