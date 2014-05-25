@@ -137,6 +137,11 @@ function setupMarkerMeta(pin,data){
 		description: data.description,
 		datetime: data.datetime});
 	google.maps.event.addListener(pin, 'click', function() {
+		expandPinInfo()
 		changeData(pin)
 	});
+}
+function expandPinInfo(){
+	$('#map_canvas').css("width","88%")
+	$('#pin_info').css("right","-5%")
 }

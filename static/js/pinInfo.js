@@ -27,8 +27,8 @@ function renderData(index){
 	document.getElementById("count").innerHTML = count
 	document.getElementById("descr").innerHTML = descriptions[index]
 	var date = new Date(dates[index])
-	document.getElementById("date").innerHTML = date.toLocaleDateString()
-	document.getElementById("pic").src = images[index]
+	document.getElementById("date").innerHTML = date.toLocaleDateString() + " " +  date.toLocaleTimeString()
+	document.getElementById("pic").src = "/img/user_uploads/" + images[index]
 
 	currIndex = index
 }
