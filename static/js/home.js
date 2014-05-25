@@ -2,6 +2,9 @@ var entries
 var marker
 var pins
 
+var latitude
+var longitude
+
 var gen_map_canvas
 var report_canvas
 
@@ -20,8 +23,7 @@ function initReports(){
 	initialize(report_canvas,true)
 }
 function initialize(map_canvas,report) {
-	var latitude
-	var longitude
+
 
 	if (navigator.geolocation){
 		navigator.geolocation.getCurrentPosition(initPosition, noPosition);
@@ -94,22 +96,39 @@ function savePosition(lat,long){
 	document.getElementById("location").value= lat + ',' + long
 }
 
+function useCurrentLocation(){
+	if(document.getElementById("locationCheckbox")!=null){
+		console.log(latitude)
+		savePosition(latitude,longitude)
+	}
+}
+
 function addAllPins(map){
 	for(var i = 0; i < entries.length ; i++){
 		if(entries[i].status != 'resolved' ||  Date.now() - entries[i].date < 15778500000){
 			var cur = entries[i];
+			var icon
+			switch(cur.reportType){
+				case "police" : icon = "/img/police1.PNG"; break;
+				case "earthquakes" : icon = "/img/earthquakes1.PNG"; break;
+				default : icon = "http://maps.google.com/mapfiles/ms/icons/red-dot.png"
+			}
+			console.log(icon)
 			var temp = new google.maps.Marker({
 					position: new google.maps.LatLng(cur.location[0],cur.location[1]),
 					map: map,
+					icon: icon,
 					title: cur.reportType
 				})
+			if (cur.reportType != "police"){
+				temp.setZIndex(-1);
+			}
 			setupMarkerMeta(temp,cur)
 		}
 	}
 }
 
 function setupMarkerMeta(pin,data){
-	console.log("thing")
 	pin.setValues({
 		reportType: data.reportType, 
 		reportCount: data.reportCount,

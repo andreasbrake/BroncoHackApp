@@ -26,7 +26,7 @@
 				<tr>
 					<td>
 						<div id='report-tab' class='menuObject'> 
-							<div class='tab-text'> Report </div>
+							<div class='tab-text'> Submit a Report </div>
 						</div>
 					</td>
 					<td>
@@ -43,8 +43,8 @@
 					<div class='reportType'>
 						Select a report type:
 						<select autofocus = 'true' name="reportType" required>
-							<option value="Graffiti">Graffiti</option>
-							<option value="Damage">Damage</option>
+							<option value="police">(non emergency) Police</option>
+							<option value="earthquakes">Earthquakes Management</option>
 						</select> <br>
 					</div>
 					<div class='description'>
@@ -55,7 +55,7 @@
 						<input type="file" name="image" accept="image/*" required> <br>
 					</div>
 					<div class='location'>
-						<input type="checkbox" id="locationCheckbox" name="locationOption" value="y" checked>Use Current Location <br>
+						<input type="checkbox" id="locationCheckbox" name="locationOption" onClick="useCurrentLocation()" value="y" checked>Use Current Location <br>
 						<div id="reportMap_canvas"></div>
 						<input type="hidden" name = "location" id="location" value="">
 					</div>

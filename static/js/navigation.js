@@ -15,7 +15,6 @@ $(document).ready(function(){
 	$('#locationCheckbox').change(function(){
 		var currHeight = $('#reportMap_canvas').css('height')
 
-		console.log(currHeight)
 		if(currHeight == '0px'){
 			$('.location').css('height','auto')
 			$('#reportMap_canvas').css('height','50%')
