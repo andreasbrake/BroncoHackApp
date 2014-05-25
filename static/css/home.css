@@ -1,3 +1,6 @@
+body{
+	overflow: hidden;
+}
 .header{
 	position: fixed;
 	top: 0;
@@ -44,7 +47,8 @@ td{
 	right: 25px;
 	bottom: 25px;
 
-	overflow: hidden;
+	overflow-x: hidden;
+	overflow-y: scroll;
 }
 #report{
 	position: absolute;
