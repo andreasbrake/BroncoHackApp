@@ -40,6 +40,9 @@
 		</div>
 		<div class='content'>
 			<div id='report'>
+				<h1> </h1>
+				<h2> Engage all citizens to report and resolve problems in our community! </h2>
+				<hr id="hr1">
 				<form action='/report' method='POST' class='reportForm' enctype="multipart/form-data">
 					<div class='reportType'>
 						Report To:
@@ -48,21 +51,27 @@
 							<option value="earthquakes">Earthquakes Management</option>
 						</select> <br>
 					</div>
+					<hr>
 					<div class='description'>
 						Description: (optional) <br>
 						<textarea id="description" name="description"></textarea> <br>
 					</div>
+					<hr>
 					<div class='image'>
-						<input type="file" name="image" accept="image/*" required> <br>
+						Add a Picture:<br>
+						<input type="file" id="image" name="image" accept="image/*" required> <br>
 					</div>
+					<hr>
 					<div class='location'>
 						<input type="checkbox" id="locationCheckbox" name="locationOption" onClick="useCurrentLocation()" value="y" checked>Use Current Location <br>
 						<div id="reportMap_canvas"></div>
 						<input type="hidden" name = "location" id="location" value="">
 					</div>
+					<hr>
 					<div class='updates'>
 						<input type="checkbox" name="updatesOption" value="y">Recieve Updates about this Report
 					</div>
+					<hr>
 					<div class='submission'>
 						<input type="submit">
 					</div>
@@ -73,6 +82,8 @@
 				<div id="pin_info">
 					<b>Report Type: </b><br>
 						<h id="type"></h><br>
+					<b>Nearest Address: </b><br>
+						<h id="address"></h><br>
 					<b>Times Reported: </b><br>
 						<h id="count"></h><br>
 					<div id="sliding_info">
