@@ -32,7 +32,6 @@ exports.create = function(req, res){
 				}
 
 				database.setUser(user, function(reply) {
-					console.log('set! ' +  reply)
 					req.login(user, function(err){
 						if (err) return console.error(err)
 						res.redirect('/')

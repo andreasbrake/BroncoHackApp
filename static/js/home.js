@@ -23,8 +23,6 @@ function initReports(){
 	initialize(report_canvas,true)
 }
 function initialize(map_canvas,report) {
-
-
 	if (navigator.geolocation){
 		navigator.geolocation.getCurrentPosition(initPosition, noPosition);
 	}

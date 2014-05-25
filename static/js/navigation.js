@@ -1,7 +1,8 @@
 $(document).ready(function(){
 	console.log('ready')
 	var loaded = false;
-
+	loadHeader()
+	
 	$('#report-tab').click(function(){
 		$('.backpane').css("left","15%")
 		$('#report').css("left","15%")
@@ -49,14 +50,19 @@ $(document).ready(function(){
 	$('#login-cancel').click(function(){
 		$('#login-form').css('top','-200%')
 	})
+	$('#logout-button').click(function(){
+		window.location = '/logout'
+	})
 
 	function loadHeader(){
 		var username = getUser()
-		var btn = document.createElement("BUTTON");
+		var div = document.getElementById('login');
+
 		if(username == ""){
-			var text = document.createTextNode("login")
-			btn.appendChild(text)
-			console.log('here')
+			div.innerHTML = "<h>you aren't logged in</h><button id='login-button'> login </button>"
+		}
+		else{
+			div.innerHTML = "<h>welcome, " + username + " </h><button id='logout-button'> logout </button>"
 		}
 	}
 })

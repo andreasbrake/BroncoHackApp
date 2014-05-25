@@ -40,15 +40,14 @@ app.get('/login',function(req,res){
 app.post('/login', passport.authenticate('local', 
     {successRedirect: '/',
     failureRedirect: '/login'}))
+app.get('/logout', function(req, res){
+    req.logout();
+    res.redirect('/');
+})
 app.get('/createUser', function(req,res){
     res.render('createUser.html')
 })
 app.post('/createUser', createUser.create)
-app.get('/blah',function(req,res){
-    database.getUser({name:'admin'},function(exists){
-        console.log(exists)
-    })
-})
 
 passport.use(new LocalStrategy(
         function(username, password, done){

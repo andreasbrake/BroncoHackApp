@@ -60,13 +60,13 @@ exports.getUser = function(username, callback){
 	console.log('getting ' + username)
 	userList.findOne({name:username},function(err,data){
 		if(err) return console.log('error')
-		console.log(data)
+
 		return callback(data)
 	})
 }
 exports.setUser = function(user, callback){
 	console.log('setting')
-	console.log(user)
+
 	exports.userExists(user.name,function(exists){
 		if(exists == 0){
 			var userFormat = new userModel({
@@ -97,7 +97,33 @@ exports.setUser = function(user, callback){
 		}
 	})
 }
+exports.updateReportStatus = function(images,newStatus,callback){
+	console.log(images)
+	reportList.findOne({images:images},function(err,data){
+		if(err) return console.log(err)
+		console.log(data)
+		var report = data
+		report.status = newStatus
 
+		reportList.update(
+				{images:report.images},
+				{
+					datetime: report.datetime,
+					description: report.description,
+					compLocation: report.compLocation,
+					location: report.location,
+					images: report.images,
+					reportTo: report.reportTo,
+					reportType: report.reportType,
+					reportCount: report.reportCount,
+					status: newStatus},
+				function(err,affected){
+					if(err) return console.log('err updating db @ mongoDB.js > updateReportStatus()')
+					console.log('updated ' + affected + ' entries')
+					return callback()
+				})
+	})
+}
 exports.getAllEntries = function(callback){
 	reportList.find(function(err,data){
 		if(err) return console.log('error')
@@ -148,43 +174,40 @@ function save(report, callback){
 	})
 }
 function update(report, callback){
-	reportList.find(
+	reportList.findOne(
 		{reportType:report.reportType, compLocation: report.compLocation, status: report.status},
 		function(err,data){
 			if(err) return console.log('error finding report')
-			data.toArray(function(err,dataArray){
+			var newCount = data.reportCount + 1
 
-				var newCount = dataArray[0].reportCount + 1
+			var newDescription = data.description
+			newDescription.push(report.description[0])
 
-				var newDescription = dataArray[0].description
-				newDescription.push(report.description[0])
+			var newImages = data.images
+			newImages.push(report.images[0])
+			
+			var newDates = data.datetime
+			newDates.push(report.datetime[0])
 
-				var newImages = dataArray[0].images
-				newImages.push(report.images[0])
-				
-				var newDates = dataArray[0].datetime
-				newDates.push(report.datetime[0])
-
-				reportList.update(
-					{
-						reportType:report.reportType, 
-						compLocation: report.compLocation, 
-						status: report.status},
-					{
-						datetime: newDates,
-						description: newDescription,
-						compLocation: report.compLocation,
-						location: report.location,
-						images: newImages,
-						reportTo: report.reportTo,
-						reportType: report.reportType,
-						reportCount: newCount,
-						status: report.status},
-					function(err,affected){
-						if(err) return console.log('err updating db @ mongoDB.js > update()')
-						console.log('updated ' + affected + ' entries')
-						return callback()
-					})
-			})
+			reportList.update(
+				{
+					reportType:report.reportType, 
+					compLocation: report.compLocation, 
+					status: report.status},
+				{
+					datetime: newDates,
+					description: newDescription,
+					compLocation: report.compLocation,
+					location: report.location,
+					images: newImages,
+					reportTo: report.reportTo,
+					reportType: report.reportType,
+					reportCount: newCount,
+					status: report.status},
+				function(err,affected){
+					if(err) return console.log('err updating db @ mongoDB.js > update()')
+					console.log('updated ' + affected + ' entries')
+					return callback()
+				})
 		})
 }

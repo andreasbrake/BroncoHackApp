@@ -15,7 +15,10 @@
 			return <%- entries %>
 		}
 		function getUser(){
-			return <%- user %>
+			return '<%=user %>'
+		}
+		function getPermission(){
+			return '<%=permissionLevel %>'
 		}
 	</script>
 	<script type="text/javascript" src="/js/pinInfo.js"></script>
@@ -27,8 +30,6 @@
 		<div class='backpane'></div>
 		<div class='header'>
 			<div id='login'>
-				<h> you are not logged in </h>
-				<button id="login-button"> login </button>
 			</div>
 			<table class='menu'>
 				<tr>
@@ -104,6 +105,7 @@
 					</div>
 					<button id='info_back' class='nav-button'>Back</button>
 					<button id='info_next' class='nav-button'>Next</button>
+					<div id='changeStatus'> </div>
 				</div>
 			</div>			
 		</div>
