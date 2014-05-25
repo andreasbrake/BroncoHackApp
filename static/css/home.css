@@ -6,7 +6,7 @@ body{
 	top: 0;
 	left: 0;
 	right: 0;
-	height: 75px;
+	height: 10%;
 
 	border-bottom: 1px solid;
 	box-shadow: 0px 1px 30px;
@@ -27,6 +27,7 @@ td{
 }
 .menuObject{
 	height: 100%;
+	margin-bottom: -2px;
 	line-height: 60px;
 	background-color: rgb(100,100,255);
 
@@ -42,20 +43,22 @@ td{
 }
 .content{
 	position: fixed;
-	top: 100px;
-	left: 25px;
-	right: 25px;
-	bottom: 25px;
+	top: 10%;
+	left: 3%;
+	right: 3%;
+	
+	margin-top: 3%;
+	height: 81%;
 
-	overflow-x: hidden;
-	overflow-y: scroll;
+	overflow: hidden;
 }
 #report{
 	position: absolute;
 
 	top: 0;
 	left: 0;
-	right: 0;
+	width: 100%;
+	height: 100%;
 
 	text-align: center;
 
@@ -70,7 +73,7 @@ td{
 	position: absolute;
 
 	top: 0;
-	left: 100%;
+	left: 200%;
 
 	width: 100%;
 	height: 100%;
@@ -84,7 +87,7 @@ td{
 }
 #reportMap_canvas {
 	width: 100%;
-	height: 400px;
+	height: 0px;
 	background-color: #CCC;
 
 	-webkit-transition: 0.2s;

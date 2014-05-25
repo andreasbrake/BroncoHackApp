@@ -1,22 +1,19 @@
 .reportType{
 	position: relative;
 
-	margin-left: 10%;
-
-	width: 50%;
+	width: 100%;
+	min-height: 50px;
 	height: 5%;
 
-	text-align: left;
+	text-align: center;
 }
 .description{
 	position: relative;
-	
-	margin-left: 10%;
-
-	width: 50%;
+	width: 100%;
+	min-height: 50px;
 	height: 20%;
 
-	text-align: left;
+	text-align: center;
 }
 textarea{
 	height: 80% !important;
@@ -25,40 +22,35 @@ textarea{
 .location{
 	position: relative;
 	
-	margin-left: 10%;
-
-	width: 80%;
+	width: 100%;
+	min-height: 50px;
 	height: 5%;
 
-	text-align: left;
+	text-align: center;
 }
 .image{
 	position: relative;
-	
-	margin-left: 10%;
-
-	width: 50%;
+	width: 100%;
+	min-height: 50px;
 	height: 5%;
 
-	text-align: left;
+	text-align: center;
 }
 .updates{
 	position: relative;
-	
-	margin-left: 10%;
 
-	width: 50%;
+	width: 100%;
+	min-height: 50px;
 	height: 5%;
 
-	text-align: left;	
+	text-align: center;	
 }
 .submission{
 	position: relative;
-	
-	margin-left: 10%;
 
-	width: 50%;
+	width: 100%;
+	min-height: 50px;
 	height: 5%;
 
-	text-align: left;
+	text-align: center;
 }
