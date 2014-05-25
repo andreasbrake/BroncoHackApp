@@ -2,31 +2,31 @@
 	<title> bronco hack app </title>
 
 	<link rel='stylesheet' href="/css/home.css"></link>
+
+	<script type="text/javascript" src="/js/jquery.js"></script>
 	<script src="http://code.google.com/apis/gears/gears_init.js" type="text/javascript" charset="utf-8"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 	<script type="text/javascript" src="/js/home.js"></script>
+	<script type="text/javascript" src="/js/navigation.js"></script>
 </head>
 	<body>
-		<ul>
-			<li> Report </li>
-			<li> View Map </li>
-		</ul>
-		<div id='report'>
-			<form action='/report' method='POST'>
-				Select a repot type:<br>
-				<select autofocus = 'true' required>
-					<option value="Graffiti">Graffiti</option>
-					<option value="Damage">Damage</option>
-				</select> <br>
-				Description: (optional) <br>
-				<input type="text" name="description"> <br>
-				<input type="checkbox" name="locationOption" value="y" checked>Use Current Location <br>
-				<div id="reportMap_canvas"></div><br>
-				<input type="file" name="image" accept="image/*" required> <br>
-				<input type="checkbox" name="updatesOption" value="y">Recieve Updates about this Report<br>
-				<input type="submit">
-			</form>
 		</div>
-
-
-		<div id="map_canvas"></div>
+		<div class='content'>
+			<div id='report'>
+				<form action='/report' method='POST'>
+					Select a repot type:<br>
+					<select autofocus = 'true' required>
+						<option value="Graffiti">Graffiti</option>
+						<option value="Damage">Damage</option>
+					</select> <br>
+					Description: (optional) <br>
+					<input type="text" name="description"> <br>
+					<input type="checkbox" name="locationOption" value="y" checked>Use Current Location <br>
+					<div id="reportMap_canvas"></div><br>
+					<input type="file" name="image" accept="image/*" required> <br>
+					<input type="checkbox" name="updatesOption" value="y">Recieve Updates about this Report<br>
+					<input type="submit">
+				</form>
+			</div>
+			<div id="map_canvas"></div>
+		</div>
