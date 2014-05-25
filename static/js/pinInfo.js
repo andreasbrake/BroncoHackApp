@@ -36,7 +36,7 @@ function getPrevious(){
 		renderData(currIndex - 1)
 }
 function renderData(index){
-	document.getElementById("type").innerHTML = "<b>" + type + "</b>"
+	document.getElementById("type").innerHTML = type
 	document.getElementById("status").innerHTML = status
 	document.getElementById("address").innerHTML = address.substring(0,address.length-5)
 	document.getElementById("count").innerHTML = count
