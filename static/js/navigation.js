@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	console.log('ready')
 	var loaded = false;
-
+	
 	$('#report-tab').click(function(){
 		$('.backpane').css("left","15%")
 		$('#report').css("left","15%")
@@ -17,12 +17,15 @@ $(document).ready(function(){
 
 		console.log(currHeight)
 		if(currHeight == '0px'){
-			$('.location').css('height','50%')
-			$('#reportMap_canvas').css('height','85%')
+			$('.location').css('height','auto')
+			$('#reportMap_canvas').css('height','50%')
+			$('#reportMap_canvas').css('min-height','280px')
 		}
 		else{
 			$('.location').css('height','5%')
 			$('#reportMap_canvas').css('height','0px')	
+			$('#reportMap_canvas').css('min-height','0px')
+
 		}
 
 		if(!loaded){

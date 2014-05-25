@@ -71,6 +71,13 @@ td{
 #map-tab{
 	border-left: 1px solid;
 }
+.tab-text{
+	position: absolute;
+	text-align: center;
+	top: 25%;
+	width: 50%;
+	height: 50%;
+}
 .content{
 	position: fixed;
 	top: 10%;
