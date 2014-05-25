@@ -46,7 +46,7 @@ exports.getAllEntries = function(callback){
 exports.saveReport = function(params,callback){
 	var location = params.location.split(',')
 	var compLocation = [parseInt("" + (parseFloat(location[0]) * 1000)),parseInt("" + (parseFloat(location[1]) * 1000))]
-	console.log(compLocation)
+
 	var report = new model({
 		datetime: [Date.now()],
 		description: params.description,
@@ -67,12 +67,10 @@ exports.saveReport = function(params,callback){
 		if(err) 
 			return console.log('whelp')
 		if(count == 0){
-			console.log(report)
 			return save(report, callback)
 		}
 		else{
 			console.log('report already exists')
-			console.log(report)
 			return update(report, callback)
 		}
 	})
