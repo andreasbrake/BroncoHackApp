@@ -80,7 +80,6 @@ $(document).ready(function(){
 
 		pins = []
 		for(var i = 0; i < entries.length ; i++){
-			console.log(entries[i].location[0])
 			if(entries[i].status != 'resolved' ||  Date.now() - entries[i].date < 15778500000)
 				var cur = entries[i];
 				var temp = new google.maps.Marker({
@@ -88,17 +87,26 @@ $(document).ready(function(){
 						map: map,
 						title: cur.reportType
 					})
-					temp.metadata = {reportType: cur.reportType, 
+					temp.setValues({reportType: cur.reportType, 
 						reportCount: cur.reportCount,
 						status: cur.status,
 						images: cur.images,
 						description: cur.description,
-						datetime: cur.datetime}
+						datetime: cur.datetime});
+					google.maps.event.addListener(temp, 'click', function() {
+						document.getElementById("type").innerHTML = temp.get("reportType")
+						document.getElementById("count").innerHTML = temp.get("reportCount")
+						document.getElementById("descr").innerHTML = temp.get("description")
+						document.getElementById("date").innerHTML = temp.get("datetime")
+						document.getElementById("pic").src = temp.get("images")
+					});
 				pins.push(
 					temp
 				)	
 		}
 	}
+
+
 	google.maps.event.addDomListener(window, 'load', initialize);
 })
 
