@@ -38,8 +38,14 @@ function initialize() {
 			mapTypeId: google.maps.MapTypeId.HYBRID
 		}
 
+		var mapOptions2 = {
+			center: new google.maps.LatLng(latitude,longitude),
+			zoom: 17,
+			mapTypeId: google.maps.MapTypeId.HYBRID
+		}
+
 		var map = new google.maps.Map(map_canvas1,mapOptions);
-		var reportMap = new google.maps.Map(map_canvas2,mapOptions);
+		var reportMap = new google.maps.Map(map_canvas2,mapOptions2);
 		var marker = new google.maps.Marker({
 			position: new google.maps.LatLng(latitude,longitude),
 			map: reportMap,

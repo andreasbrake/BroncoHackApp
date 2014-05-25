@@ -22,12 +22,12 @@
 			<div id='report'>
 				<form action='/report' method='POST'>
 					Select a repot type:<br>
-					<select autofocus = 'true' required>
+					<select autofocus = 'true' name="reportType" required>
 						<option value="Graffiti">Graffiti</option>
 						<option value="Damage">Damage</option>
 					</select> <br>
 					Description: (optional) <br>
-					<input type="text" name="description"> <br>
+					<textarea id="description" name="description"></textarea> <br>
 					<input type="checkbox" name="locationOption" value="y" checked>Use Current Location <br>
 					<div id="reportMap_canvas"></div><br>
 					<input type="file" name="image" accept="image/*" required> <br>
