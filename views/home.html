@@ -15,7 +15,10 @@
 			return <%- entries %>
 		}
 		function getUser(){
-			return <%- user %>
+			return '<%=user %>'
+		}
+		function getPermission(){
+			return '<%=permissionLevel %>'
 		}
 	</script>
 	<script type="text/javascript" src="/js/pinInfo.js"></script>
@@ -87,6 +90,7 @@
 			<div id="map">
 				<div id="map_canvas"></div>
 				<div id="pin_info">
+					<div id="info_close"><h>close</h></div>
 					<b>Report Type: </b><br>
 						<h id="type"></h><br>
 					<b>Status: </b><br>
@@ -104,6 +108,7 @@
 					</div>
 					<button id='info_back' class='nav-button'>Back</button>
 					<button id='info_next' class='nav-button'>Next</button>
+					<div id='changeStatus'></div>
 				</div>
 			</div>			
 		</div>

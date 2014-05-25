@@ -2,7 +2,7 @@ $(document).ready(function(){
 	console.log('ready')
 	var loaded = false;
 	loadHeader()
-	
+
 	$('#report-tab').click(function(){
 		$('.backpane').css("left","15%")
 		$('#report').css("left","15%")
@@ -53,12 +53,18 @@ $(document).ready(function(){
 	$('#logout-button').click(function(){
 		window.location = '/logout'
 	})
+	$('#info_close').click(function(){
+		$('#map_canvas').css("width","100%")
+		$("#pin_info").css("left","180%")
+		$("#pin_info").css("right","-100%")
+		$("#pin_info").css("width","-20%")
+	})
 
 	function loadHeader(){
 		var username = getUser()
 		var div = document.getElementById('login');
 
-		if(username == ""){
+		if(username == "" ){
 			div.innerHTML = "<h>you aren't logged in</h><button id='login-button'> login </button>"
 		}
 		else{

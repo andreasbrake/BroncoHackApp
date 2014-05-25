@@ -140,6 +140,17 @@ function setupMarkerMeta(pin,data){
 	});
 }
 function expandPinInfo(){
-	$('#map_canvas').css("width","88%")
-	$('#pin_info').css("right","-5%")
+	var width = $(window).width()
+
+	if(width >= 500){
+		$('#map_canvas').css("width","85%")
+		$('#pin_info').css("left","85%")
+		$('#pin_info').css("right","-5%")
+		$('#pin_info').css("width","20%")	
+	}
+	else{
+		$('#pin_info').css("right","5%")
+		$('#pin_info').css("left","5%")
+		$('#pin_info').css("width","90%")
+	}
 }
