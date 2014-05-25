@@ -14,6 +14,9 @@
 		function getEntries(){
 			return <%- entries %>
 		}
+		function getUser(){
+			return <%- user %>
+		}
 	</script>
 	<script type="text/javascript" src="/js/pinInfo.js"></script>
 	<script type="text/javascript" src="/js/home.js"></script>
@@ -23,6 +26,10 @@
 	<body>
 		<div class='backpane'></div>
 		<div class='header'>
+			<div id='login'>
+				<h> you are not logged in </h>
+				<button id="login-button"> login </button>
+			</div>
 			<table class='menu'>
 				<tr>
 					<td>
@@ -97,4 +104,17 @@
 					<button id='info_next' class='nav-button'>Next</button>
 				</div>
 			</div>			
+		</div>
+		<div id='login-form'>
+			<div class='mask'></div>
+			<div class='form-body'>
+				<form id='input-form' action="/login" method="POST">
+					<h1> LOGIN </h1>
+					<input type='text' name='username'></input>
+					<input type='text' name='password'></input>
+					<br>
+				</form>
+				<input form='input-form' type='submit' value='login'></input>
+				<button id='login-cancel'> cancel </button>
+			</div>
 		</div>
