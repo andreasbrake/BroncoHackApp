@@ -7,7 +7,7 @@ var report_canvas
 
 $(document).ready(function(){
 	entries = getEntries().entries
-	alert(entries)
+	console.log('home.js not necissarily broken')
 })
 google.maps.event.addDomListener(window, 'load', initMaps);
 function initMaps(){
@@ -104,7 +104,6 @@ function addAllPins(map){
 					map: map,
 					title: cur.reportType
 				})
-			console.log(cur.description)
 				temp.setValues({reportType: cur.reportType, 
 					reportCount: cur.reportCount,
 					status: cur.status,

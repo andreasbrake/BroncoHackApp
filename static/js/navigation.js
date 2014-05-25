@@ -3,12 +3,14 @@ $(document).ready(function(){
 	var loaded = false;
 
 	$('#report-tab').click(function(){
-		$('#report').css("left","0%")
-		$('#map_canvas').css("left","200%")
+		$('.backpane').css("left","15%")
+		$('#report').css("left","15%")
+		$('#map').css("left","200%")
 	})
 	$('#map-tab').click(function(){
+		$('.backpane').css("left","-200%")
 		$('#report').css("left","-200%")
-		$('#map_canvas').css("left","0%")
+		$('#map').css("left","5%")
 	})
 	$('#locationCheckbox').change(function(){
 		var currHeight = $('#reportMap_canvas').css('height')
