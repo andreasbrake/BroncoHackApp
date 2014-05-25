@@ -2,6 +2,7 @@
 	<title> bronco hack app </title>
 
 	<link rel='stylesheet' href="/css/home.css"></link>
+	<link rel='stylesheet' href="/css/formStructure.css"></link>
 
 	<script type="text/javascript" src="/js/jquery.js"></script>
 	<script src="http://code.google.com/apis/gears/gears_init.js" type="text/javascript" charset="utf-8"></script>
@@ -28,7 +29,7 @@
 			<div id='report'>
 				<form action='/report' method='POST' class='reportForm'>
 					<div class='reportType'>
-						Select a report type:<br>
+						Select a report type:
 						<select autofocus = 'true' name="reportType" required>
 							<option value="Graffiti">Graffiti</option>
 							<option value="Damage">Damage</option>
@@ -38,16 +39,18 @@
 						Description: (optional) <br>
 						<textarea id="description" name="description"></textarea> <br>
 					</div>
+					<div class='image'>
+						<input type="file" name="image" accept="image/*" required> <br>
+					</div>
 					<div class='location'>
 						<input type="checkbox" id="locationCheckbox" name="locationOption" value="y" checked>Use Current Location <br>
 						<div id="reportMap_canvas"></div>
 						<input type="hidden" name = "location" id="location" value="">
 					</div>
-					<div class='image'>
-						<input type="file" name="image" accept="image/*" required> <br>
+					<div class='updates'>
+						<input type="checkbox" name="updatesOption" value="y">Recieve Updates about this Report
 					</div>
 					<div class='submission'>
-						<input type="checkbox" name="updatesOption" value="y">Recieve Updates about this Report
 						<input type="submit">
 					</div>
 				</form>
