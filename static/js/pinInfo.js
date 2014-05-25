@@ -1,4 +1,5 @@
 var type = ""
+var status = ""
 var address = ""
 var count = 0
 var descriptions = []
@@ -10,6 +11,7 @@ function changeData(pin){
 	var geocoder = new google.maps.Geocoder();
 
 	type = pin.get("reportType")
+	status = pin.get("status")
 	count = pin.get("reportCount")
 	descriptions = pin.get("description")
 	dates = pin.get("datetime")
@@ -34,7 +36,8 @@ function getPrevious(){
 		renderData(currIndex - 1)
 }
 function renderData(index){
-	document.getElementById("type").innerHTML = type
+	document.getElementById("type").innerHTML = "<b>" + type + "</b>"
+	document.getElementById("status").innerHTML = status
 	document.getElementById("address").innerHTML = address.substring(0,address.length-5)
 	document.getElementById("count").innerHTML = count
 	document.getElementById("descr").innerHTML = descriptions[index]
