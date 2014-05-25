@@ -1,4 +1,8 @@
+var db = require('../mongoDB.js')
+
 exports.get = function(req,res){
 	console.log('GET page')
-	return res.render('home.html',{entries:[1,2]})
+	db.getAllEntries(function(entries){
+		return res.render('home.html',{entries:entries})
+	})
 }
