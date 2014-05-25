@@ -46,17 +46,22 @@ exports.post = function(req,res){
 			return console.log('whelp')
 		if(count == 0){
 			console.log(report)
-			//return saveReport(report))
+			return saveReport(report, res)
 		}
 		else{
 			console.log('report already exists')
-			//updateCity(city)
+			console.log(report)
+			return res.redirect('/')
+			//updateReport(report)
 		}
 	})
 }
-function saveReport(report){
-	reportList.save(function(err){ if(err) return console.log('whoops an error')})
-	console.log('saved report')
+function saveReport(report, res){
+	report.save(function(err){ 
+		if(err) return console.log('whoops an error')
 
-	return res.redirect('/')
+		console.log('saved report')
+
+		return res.redirect('/')
+	})
 }
