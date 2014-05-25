@@ -1,19 +1,26 @@
 #!/bin/env node
-var ip_addr = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
+var ip_addr = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1'
 var port    = process.env.OPENSHIFT_NODEJS_PORT || '3000'
 
-var express = require('express');
-var ejs = require('ejs');
+// Module imports
+var express = require('express')
+var ejs = require('ejs')
 
-/* Initialize express */
-var app = express();
+// Routing imports
+var map = require('./routes/map.js')
+var report = require('./routes/report.js')
+var page = require('./routes/page.js')
 
-app.engine('html', ejs.renderFile);
-app.use(express.static('static'));
+var database = require('./mongoDB.js')
+var app = express()
 
-app.get('/',function(req, res){
-	return res.render('home.html')
-})
+app.engine('html', ejs.renderFile)
+app.use(express.static('static'))
 
-/* Run on port 3000 */
-app.listen(port, ip_addr);
+// Request Routing
+app.get('/',page.get)
+app.post('/map',map.post)
+app.post('/report',report.post)
+
+// RUN SERVER!!!
+app.listen(port, ip_addr)
