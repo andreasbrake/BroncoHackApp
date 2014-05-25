@@ -137,12 +137,6 @@ function setupMarkerMeta(pin,data){
 		description: data.description,
 		datetime: data.datetime});
 	google.maps.event.addListener(pin, 'click', function() {
-		
-		document.getElementById("type").innerHTML = pin.get("reportType")
-		document.getElementById("count").innerHTML = pin.get("reportCount")
-			document.getElementById("descr").innerHTML = pin.get("description")[0]
-			var date = new Date(pin.get("datetime")[0])
-			document.getElementById("date").innerHTML = date.toLocaleDateString()
-			document.getElementById("pic").src = pin.get("images")[0]
+		changeData(pin)
 	});
 }

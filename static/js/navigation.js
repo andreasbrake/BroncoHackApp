@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	console.log('ready')
 	var loaded = false;
-	
+
 	$('#report-tab').click(function(){
 		$('.backpane').css("left","15%")
 		$('#report').css("left","15%")
@@ -33,7 +33,11 @@ $(document).ready(function(){
 				loaded = true;
 			},200)
 		}
-		
 	})
-
+	$('#info_back').click(function(){
+		getPrevious()
+	})
+	$('#info_next').click(function(){
+		getNext()
+	})
 })

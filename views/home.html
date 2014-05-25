@@ -15,6 +15,7 @@
 			return <%- entries %>
 		}
 	</script>
+	<script type="text/javascript" src="/js/pinInfo.js"></script>
 	<script type="text/javascript" src="/js/home.js"></script>
 	<script type="text/javascript" src="/js/navigation.js"></script>
 	
@@ -41,7 +42,7 @@
 			<div id='report'>
 				<form action='/report' method='POST' class='reportForm'>
 					<div class='reportType'>
-						Select a report type:
+						Report To:
 						<select autofocus = 'true' name="reportType" required>
 							<option value="police">(non emergency) Police</option>
 							<option value="earthquakes">Earthquakes Management</option>
@@ -81,6 +82,8 @@
 							<h id="date"></h><br><br>
 						<img id="pic" src="">
 					</div>
+					<button id='info_back' class='nav-button'>Back</button>
+					<button id='info_next' class='nav-button'>Next</button>
 				</div>
 			</div>			
 		</div>
