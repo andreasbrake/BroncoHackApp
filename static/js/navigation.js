@@ -52,7 +52,10 @@ $(document).ready(function(){
 
 	function loadHeader(){
 		var username = getUser()
+		var btn = document.createElement("BUTTON");
 		if(username == ""){
+			var text = document.createTextNode("login")
+			btn.appendChild(text)
 			console.log('here')
 		}
 	}
