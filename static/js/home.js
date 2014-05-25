@@ -1,4 +1,6 @@
 
+var marker
+
 function initialize() {
 	var latitude
 	var longitude
@@ -19,11 +21,16 @@ function initialize() {
 		}
 		var map = new google.maps.Map(map_canvas1,mapOptions);
 		var reportMap = new google.maps.Map(map_canvas2,mapOptions);
-		var marker = new google.maps.Marker({
+		marker = new google.maps.Marker({
 			position: new google.maps.LatLng(37.616494, -121.856501),
 			map: reportMap,
 			draggable:true,
 			title: 'Report Location'
+		});
+		savePosition(latitude,longitude)
+		google.maps.event.addListener(marker,'dragend',function(event) {
+			savePosition(this.position.lat(),this.position.lng())
+			alert('Drag end');
 		});
 	}
 
@@ -46,14 +53,23 @@ function initialize() {
 
 		var map = new google.maps.Map(map_canvas1,mapOptions);
 		var reportMap = new google.maps.Map(map_canvas2,mapOptions2);
-		var marker = new google.maps.Marker({
+		marker = new google.maps.Marker({
 			position: new google.maps.LatLng(latitude,longitude),
 			map: reportMap,
 			draggable:true,
 			title: 'Report Location'
 		});
+		savePosition(latitude,longitude)
+		google.maps.event.addListener(marker,'dragend',function(event) {
+			savePosition(this.position.lat(),this.position.lng())
+		});
 	}
 }
+
+function savePosition(lat,long){
+	document.getElementById("location").value=[lat,long]
+}
+
 
 
 google.maps.event.addDomListener(window, 'load', initialize);
