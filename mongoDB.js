@@ -11,6 +11,7 @@ var model
 var reportFormat = new mongoose.Schema({
 	datetime: Array,
 	description: Array,
+	compLocation: Array,
 	location: Array,
 	images: Array,
 	reportTo: Array,
@@ -44,10 +45,12 @@ exports.getAllEntries = function(callback){
 }
 exports.saveReport = function(params,callback){
 	var location = params.location.split(',')
-
+	var compLocation = [parseInt("" + (parseFloat(location[0]) * 1000)),parseInt("" + (parseFloat(location[1]) * 1000))]
+	console.log(compLocation)
 	var report = new model({
 		datetime: [Date.now()],
 		description: params.description,
+		compLocation: compLocation,
 		location: [parseFloat(location[0]),parseFloat(location[1])],
 		images: [params.image],
 		reportTo: [],
