@@ -63,6 +63,7 @@ function loadStatusDropdown(){
 					"<option value='unresolved'>Unresolved</option>"+
 					"<option value='inProgress'>In Progress</option>"+
 					"<option value='resolved'>Resolved</option>"+
+					"<option value='spam'>Spam</option>"+
 				"</select>"+
 				"<input type='submit' value'change status'></input>"
 			"</form>"

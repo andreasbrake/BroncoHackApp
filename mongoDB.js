@@ -101,7 +101,6 @@ exports.updateReportStatus = function(images,newStatus,callback){
 	console.log(images)
 	reportList.findOne({images:images},function(err,data){
 		if(err) return console.log(err)
-		console.log(data)
 		var report = data
 		report.status = newStatus
 
@@ -122,6 +121,17 @@ exports.updateReportStatus = function(images,newStatus,callback){
 					console.log('updated ' + affected + ' entries')
 					return callback()
 				})
+	})
+}
+exports.removeEntry = function(images,callback){
+	reportList.findOne({images:images},function(err,data){
+		if(err) return console.log(err)
+		var reportId = data._id
+
+		reportList.remove({_id:reportId},function(err){
+			if(err) return error
+			return callback()
+		})
 	})
 }
 exports.getAllEntries = function(callback){
