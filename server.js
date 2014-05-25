@@ -32,14 +32,14 @@ app.use(passport.session())
 
 // Request Routing
 app.get('/',page.get)
-app.post('/map',map.post)
+app.post('/map',auth,map.post)
 app.post('/report', report.post)
 app.get('/login',function(req,res){
     res.render('login.html')
 })
 app.post('/login', passport.authenticate('local', 
     {successRedirect: '/',
-    failureRedirect: '/login'}))
+    failureRedirect: '/'}))
 app.get('/logout', function(req, res){
     req.logout();
     res.redirect('/');
@@ -52,6 +52,8 @@ app.post('/createUser', createUser.create)
 passport.use(new LocalStrategy(
         function(username, password, done){
             database.getUser(username,function(user){
+                if(user == null) return done(null, false);
+                console.log(user)
                 bcrypt.hash(password, user.salt, function(err, comp_hash){
                     if (err) return done(null, false);
                     return done(null, user);
