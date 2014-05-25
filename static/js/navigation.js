@@ -40,4 +40,20 @@ $(document).ready(function(){
 	$('#info_next').click(function(){
 		getNext()
 	})
+	$('#login-button').click(function(){
+		$('#login-form').css('top','0px')
+	})
+	$('.mask').click(function(){
+		$('#login-form').css('top','-200%')
+	})
+	$('#login-cancel').click(function(){
+		$('#login-form').css('top','-200%')
+	})
+
+	function loadHeader(){
+		var username = getUser()
+		if(username == ""){
+			console.log('here')
+		}
+	}
 })
