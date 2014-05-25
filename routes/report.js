@@ -8,5 +8,6 @@ db.on('connected', function callback(){
 
 exports.post = function(req,res){
 	console.log('POST report')
+	console.log(req.body)
 	return res.redirect('/')
 }

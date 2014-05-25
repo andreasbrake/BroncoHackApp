@@ -1,5 +1,10 @@
 #map_canvas {
-        width: 500px;
-        height: 400px;
-        background-color: #CCC;
-      }
+	width: 500px;
+	height: 400px;
+	background-color: #CCC;
+}
+#reportMap_canvas {
+	width: 500px;
+	height: 400px;
+	background-color: #CCC;
+}
