@@ -65,10 +65,16 @@ $(document).ready(function(){
 		var div = document.getElementById('login');
 
 		if(username == "" ){
-			div.innerHTML = "<h>you aren't logged in</h><button id='login-button'> login </button>"
+			if($(window).width() >= 500)
+				div.innerHTML = "<button id='login-button'> login </button><br><h>you aren't logged in</h>"
+			else
+				div.innerHTML = "<h>you aren't logged in</h><button id='login-button'> login </button>"
 		}
 		else{
-			div.innerHTML = "<h>welcome, " + username + " </h><button id='logout-button'> logout </button>"
+			if($(window).width() >= 500)	
+				div.innerHTML = "<button id='logout-button'> logout </button><br><h>welcome, " + username + " </h>"
+			else
+				div.innerHTML = "<h>welcome, " + username + " </h><button id='logout-button'> logout </button>"
 		}
 	}
 })

@@ -28,61 +28,38 @@
 </head>
 	<body>
 		<div class='backpane'></div>
-		<div class='header'>
-			<div id='login'>
-				<h> you are not logged in </h>
-				<button id="login-button"> login </button>
-			</div>
-			<table class='menu'>
-				<tr>
-					<td>
-						<div id='report-tab' class='menuObject'> 
-							<div class='tab-text'> Submit a Report </div>
-						</div>
-					</td>
-					<td>
-						<div id='map-tab' class='menuObject'> 
-							<div class='tab-text'> View Map </div>
-						</div>
-					</td>
-				</tr>
-			</table>
-		</div>
 		<div class='content'>
 			<div id='report'>
-				<h1> VandalFree </h1>
-				<h2> Report vandalism to improve our community! </h2>
-				<hr id="hr1">
 				<form action='/report' method='POST' class='reportForm' enctype="multipart/form-data">
-					<div class='reportType'>
+					<div class='reportHeader'>
+						<h1> VandalFree </h1>
+						<h2> Report vandalism to improve our community! </h2>
+					</div>
+					<div class='report-item'>
 						Report To:
 						<select autofocus = 'true' name="reportType" required>
+							<option value=""></option>
 							<option value="police">Police</option>
 							<option value="earthquakes">San Jose Earthquakes</option>
 						</select> <br>
 					</div>
-					<hr>
-					<div class='description'>
+					<div class='report-item'>
 						Description: (optional) <br>
 						<textarea id="description" name="description"></textarea> <br>
 					</div>
-					<hr>
-					<div class='image'>
+					<div class='report-item'>
 						Add a Picture:<br>
 						<input type="file" id="image" name="image" accept="image/*" required> <br>
 					</div>
-					<hr>
-					<div class='location'>
+					<div class='report-item'>
 						<input type="checkbox" id="locationCheckbox" name="locationOption" onClick="useCurrentLocation()" value="y" checked>Use Current Location <br>
 						<div id="reportMap_canvas"></div>
 						<input type="hidden" name = "location" id="location" value="">
 					</div>
-					<hr>
-					<div class='updates'>
+					<div class='report-item'>
 						<input type="checkbox" name="updatesOption" value="y">Recieve Updates about this Report
-					</div>
-					<hr>
-					<div class='submission'>
+						<br>
+						<br>
 						<input type="submit">
 					</div>
 				</form>
@@ -111,6 +88,27 @@
 					<div id='changeStatus'></div>
 				</div>
 			</div>			
+		</div>
+		<div class='header'>
+			<div id='login'>
+				<button id="login-button"> login </button>
+				<br>
+				<h> you are not logged in </h>
+			</div>
+			<table class='menu'>
+				<tr>
+					<td>
+						<div id='report-tab' class='menuObject'> 
+							<div class='tab-text'> Submit a Report </div>
+						</div>
+					</td>
+					<td>
+						<div id='map-tab' class='menuObject'> 
+							<div class='tab-text'> View Map </div>
+						</div>
+					</td>
+				</tr>
+			</table>
 		</div>
 		<div id='login-form'>
 			<div class='mask'></div>

@@ -12,7 +12,7 @@ exports.get = function(req,res){
 			var isAdmin = 0
 		}
 		else{
-			var username = req.user.name
+			var username = req.user.name.split('@')[0]
 			var isAdmin = req.user.isAdmin
 		}
 

@@ -1,60 +1,16 @@
 .menuObject{
 	margin-bottom: -2px;
 }
-.reportType{
-	position: relative;
-
-	width: 100%;
-	min-height: 50px;
-	height: 5%;
-
-	text-align: center;
-}
-.description{
-	position: relative;
-	width: 100%;
-	min-height: 75px;
-	height: 20%;
-
-	margin-bottom: 5px;
-	text-align: center;
-}
 textarea{
-	height: 80% !important;
+	height: 100px !important;
 	resize: none;
 }
-.location{
+.report-item{
 	position: relative;
+
+	width: 100%;
 	
-	width: 100%;
-	min-height: 50px;
-	height: 5%;
-
-	text-align: center;
-}
-.image{
-	position: relative;
-	width: 100%;
-	min-height: 50px;
-	height: 5%;
-
-	text-align: center;
-}
-.updates{
-	position: relative;
-
-	width: 100%;
-	min-height: 50px;
-	height: 5%;
-
-	text-align: center;	
-}
-.submission{
-	position: relative;
-
-	width: 100%;
-	min-height: 50px;
-	height: 5%;
-
+	margin-top: 15px;
+	margin-bottom: 15px;
 	text-align: center;
 }

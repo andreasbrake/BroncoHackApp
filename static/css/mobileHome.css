@@ -5,6 +5,7 @@
 body{
 	overflow: hidden;
 	background-color: rgb(170,170,170);
+	background-image: url('/img/noisebg.png');
 	font-family: quicksand !important;
 }
 .backpane{
@@ -34,9 +35,6 @@ body{
 	height: 10%;
 
 	padding: 0px;
-	border-bottom: 1px solid;
-	color: white;
-	background-color: white;
 }
 #login{
 	position: fixed;
